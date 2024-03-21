@@ -12,7 +12,7 @@ This index page serves as the landing page for my personal website. It provides 
 
 ## Usage
 
-To view the index page, simply visit [https://yourusername.github.io/your-repository-name](https://yourusername.github.io/your-repository-name).
+To view the index page, simply visit  [https://hariprasads1234.github.io/udemy-clonex/]
 
 Feel free to customize the HTML and CSS files to suit your preferences and update the content as needed.
 
