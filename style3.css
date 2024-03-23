@@ -5,9 +5,9 @@
 
 body {
   font-family: "Gabarito", sans-serif;
-  font-optical-sizing: auto;
   font-weight: 400;
-  font-style: normal;
+  font-optical-sizing: auto;
+  font-size: auto;
 }
 
 .navbar {
@@ -15,6 +15,7 @@ body {
   display: flex;
   justify-content: space-between;
   border-bottom: solid 1px black;
+  border-top: solid 1px black;
   gap: 10px;
   position: sticky;
   top: 0%;
@@ -52,6 +53,10 @@ body {
   gap: 10px;
 }
 
+.navbar__s4 {
+  display: none;
+}
+
 .navbar_section {
   position: relative;
   cursor: pointer;
@@ -62,17 +67,31 @@ body {
   background-color: white;
   border: 1px solid black;
   border-radius: 1px;
-
   top: 80%;
   width: 100%;
   padding: 2px;
   border-radius: 5px;
   display: none;
 
+
 }
 
 .navbar_section:hover .navbar_section__hover {
   display: block;
+  animation-name: zoomtv;
+  animation-duration: 0.5s;
+}
+
+@keyframes zoomtv {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .categories {
@@ -88,34 +107,38 @@ body {
   padding: 10px;
   border-radius: 30px;
   border: black solid 1px;
-  
+
 
 }
-.categories p:hover{
-  animation-name: zooms ;
+
+.categories p:hover {
+  animation-name: zooms;
   animation-duration: 1s;
 }
+
 @keyframes zooms {
-  0%{
+  0% {
     opacity: 1;
     transform: scale(1);
 
   }
-  
-100%{
-  background-color: #A435F0;
-  color: white;
-    border: black solid 1px;
+
+  100% {
+    background-color: #A435F0;
+    color: white;
+    border: black solid 2px;
     opacity: 2;
     transform: scale(1.4);
 
+  }
 }
-}
+
 .sale-image {
   width: 100%;
   height: 400px;
   border: solid black 5px;
   position: relative;
+  
 
 
 
@@ -133,19 +156,23 @@ body {
 .recommended__title,
 .recommended__desc {
   padding-left: 10px;
+  margin-right: 10px;
 }
 
 .recommended__container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 10px;
   margin-top: 10px;
   flex-wrap: wrap;
+  width: 100%;
 
 }
 
 .course-card {
-  width: 200px;
+  width: 300px;
+  flex-basis: 1;
+  
 
 
 
@@ -165,13 +192,14 @@ body {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  gap: 8px;
 
 }
 
 .topics__container p {
 
   padding: 10px;
-  outline: solid black 2px;
+  outline: solid black 1px;
   flex-grow: 1;
   flex-basis: 25%;
 
@@ -188,12 +216,50 @@ body {
   padding-left: 10px;
 
 }
+.popular__container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  margin-left: 10px;
+
+
+}
+
+
+
+
+.course-card__second {
+  flex-basis: 33%;
+  width: 200px;
+  height: 350px;
+
+
+
+}
+
+.course-card__second img {
+  width: 75%;
+  height: 70%;
+}
+
+.course-card__second h3 {
+  width: 75%;
+}
+
+.footer {
+  padding: 30px;
+  background-color: black;
+  color: white;
+}
 
 .footer__one {
   display: flex;
   gap: 20px;
 
 
+  
 }
 
 .footer__one p {
@@ -208,42 +274,8 @@ body {
   margin: 20px;
 }
 
-.course-card__second {
-
-  width: 200px;
 
 
-}
-
-.popular__container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin-top: 10px;
-  margin-left: 10px;
-
-
-}
-
-.footer {
-  padding: 30px;
-  background-color: black;
-  color: white;
-}
-
-.course-card__second {
-  flex-basis: 33%;
-  width: 200px;
-
-
-}
-
-.course-card__second img {
-  width: 75%;
-  height: 50%;
-}
 
 .sale_image_desc {
   width: 400px;
@@ -253,13 +285,13 @@ body {
   top: 4%;
   left: 1%;
   background-color: whitesmoke;
-  animation-name: zoom;
+  animation-name: zooming;
   animation-duration: 3s;
   opacity: 0;
   animation-fill-mode: forwards;
 }
 
-@keyframes zoom {
+@keyframes zooming {
   0% {
     transform: scale(0);
     opacity: 0;
@@ -274,10 +306,43 @@ body {
 
 .sale_image_desc h1 {
   font-style: italic;
-  font-size: 25px;
 }
 
-.sale_image,
-p {
-  font-size: large;
+
+@media screen and (max-width:800px) {
+  body {
+    font-size: 10px;
+  }
+
+  .sale_image_desc {
+    width: 50%;
+    height: 17%;
+  }
+
+  .categories {
+    display: none;
+  }
+}
+
+@media screen and (max-width:600px) {
+
+  .course-card__second {
+    flex-basis: 45%;
+    flex-grow: 1;
+  }
+
+  .navbar__s2 {
+    display: none;
+  }
+
+  .navbar__s3 {
+    display: none;
+  }
+
+  .navbar__s4 {
+    display: block;
+  }
+  .course-card{
+    flex-basis: 45%;
+  }
 }
